@@ -12,14 +12,6 @@ const parallelTests = async (capability) => {
 
   const page = await browser.newPage()
 
-  await page.goto("https://duckduckgo.com");
-
-  let element = await page.locator("[name=\"q\"]");
-  await element.click();
-  await element.type("LambdaTest");
-  await element.press("Enter");
-  const title = await page.title()
-
   try {
     // Mark the test as completed or failed
     //Below code for Test Sceanrio 1
@@ -47,9 +39,9 @@ const parallelTests = async (capability) => {
   await page.getByRole('button', { name: 'Submit' }).click();
   const errorMessage = await page.textContent(".parsley-errors-list");
   expect(errorMessage.trim()).toBe("Please fill in the fields");
-  await page.getByRole('textbox', {name: 'Name'}).fill('Aditi');
-  await page.getByRole('textbox', {name: 'Email'}).fill('adc@gmail.com'); 
-  await page.getByRole('textbox', {name: 'Password'}).fill('Password@123');
+  await page.getByRole('textbox', {name: 'Name'}).fill('Vijay Pandey');
+  await page.getByRole('textbox', {name: 'Email'}).fill('vijk@gmail.com'); 
+  await page.getByRole('textbox', {name: 'Password'}).fill('Password@12345');
   await page.getByRole('textbox', {name: 'Company'}).fill('Qwerty123');
   await page.getByRole('textbox', {name: 'Website'}).fill('www.lambdatest.com');
   await this.page.selectOption("#inputCountry", { label: "United States" });
@@ -57,7 +49,7 @@ const parallelTests = async (capability) => {
   await page.getByRole('textbox', {name: 'Address 1'}).fill('123 Main St');
   await page.getByRole('textbox', {name: 'Address 2'}).fill('Suite 100');
   await page.getByRole('textbox', {name: 'City* State'}).fill('NY');
-  await page.getByRole('textbox', {name: 'Zip Code'}).fill('10001');
+  await page.getByRole('textbox', {name: 'Zip Code'}).fill('53151');
   await page.getByRole('button', { name: 'Submit' }).click();
   const successMessage = await page.textContent(".success-msg");
     expect(successMessage.trim()).toBe("Thanks for contacting us, we will get back to you shortly.")
